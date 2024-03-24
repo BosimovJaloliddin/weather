@@ -6,7 +6,6 @@ const tempF = document.querySelector(".temp-f");
 const tempC = document.querySelector(".temp-c");
 const day = document.querySelector(".day");
 const dayIcon = document.querySelector(".day-icon");
-console.log(dayIcon.attributes.src.textContent);
 
 let weatherDate = new Map();
 const getWeatherInfo = async (city) => {
@@ -40,11 +39,10 @@ const m = async () => {
   await getWeatherInfo("Tashkent");
   updateInfo();
 };
-if (weatherDate.size === 0) {
+if (!weatherDate.has("date")) {
   m();
 }
-// ==============================================================
-
+// ===============================================================
 btnSearch.addEventListener("click", async () => {
   if (search.value !== "") {
     await getWeatherInfo(search.value);
