@@ -1,4 +1,5 @@
 const search = document.querySelector(".search");
+const searchError = document.querySelector(".search-error");
 const city = document.querySelector(".city");
 const oclock = document.querySelector(".oclock");
 const date = document.querySelector(".date");
@@ -47,7 +48,6 @@ const oneDayDay6 = document.querySelector(".one-day_day6");
 
 // ====================================================
 let weatherDate = new Map();
-let weatherDate2 = new Map();
 // =====================================================
 const getWeatherInfo = async (city) => {
   let res = await fetch(
@@ -58,11 +58,13 @@ const getWeatherInfo = async (city) => {
   );
 
   let result = await res.json();
-  weatherDate.set("date", result);
-  weatherDate.set("hour", result?.forecast?.forecastday[0]?.hour);
-  weatherDate.set("forecast", result?.forecast?.forecastday);
 
-  console.log(result?.forecast?.forecastday);
+  if (result?.error?.code !== 1006) {
+    weatherDate.set("date", result);
+    weatherDate.set("hour", result?.forecast?.forecastday[0]?.hour);
+    weatherDate.set("forecast", result?.forecast?.forecastday);
+    weatherDate.delete("error");
+  } else weatherDate.set("error", result?.error?.message);
 };
 
 // ==============================================================
@@ -78,17 +80,23 @@ const updateInfo = () => {
   dayIcon.attributes.src.textContent =
     weatherDate.get("date")?.current?.condition?.icon;
   //
-  hourInfoOclock1.textContent = weatherDate.get("hour")[0].time.slice(10, 16);
-  hourInfoOclock2.textContent = weatherDate.get("hour")[6].time.slice(10, 16);
-  hourInfoOclock3.textContent = weatherDate.get("hour")[12].time.slice(10, 16);
-  hourInfoOclock4.textContent = weatherDate.get("hour")[18].time.slice(10, 16);
-  hourInfoOclock5.textContent = weatherDate.get("hour")[23].time.slice(10, 16);
+  hourInfoOclock1.textContent = weatherDate.get("hour")[0]?.time?.slice(10, 16);
+  hourInfoOclock2.textContent = weatherDate.get("hour")[6]?.time?.slice(10, 16);
+  hourInfoOclock3.textContent = weatherDate
+    .get("hour")[12]
+    ?.time?.slice(10, 16);
+  hourInfoOclock4.textContent = weatherDate
+    .get("hour")[18]
+    ?.time?.slice(10, 16);
+  hourInfoOclock5.textContent = weatherDate
+    .get("hour")[23]
+    ?.time?.slice(10, 16);
 
-  hourInfoTemp1.textContent = `${weatherDate.get("hour")[0].temp_c}C`;
-  hourInfoTemp2.textContent = `${weatherDate.get("hour")[6].temp_c}C`;
-  hourInfoTemp3.textContent = `${weatherDate.get("hour")[12].temp_c}C`;
-  hourInfoTemp4.textContent = `${weatherDate.get("hour")[18].temp_c}C`;
-  hourInfoTemp5.textContent = `${weatherDate.get("hour")[23].temp_c}C`;
+  hourInfoTemp1.textContent = `${weatherDate.get("hour")[0]?.temp_c}C`;
+  hourInfoTemp2.textContent = `${weatherDate.get("hour")[6]?.temp_c}C`;
+  hourInfoTemp3.textContent = `${weatherDate.get("hour")[12]?.temp_c}C`;
+  hourInfoTemp4.textContent = `${weatherDate.get("hour")[18]?.temp_c}C`;
+  hourInfoTemp5.textContent = `${weatherDate.get("hour")[23]?.temp_c}C`;
 
   hourInfoImg1.attributes.src.textContent =
     weatherDate.get("hour")[0]?.condition?.icon;
@@ -139,7 +147,6 @@ const updateInfo = () => {
   oneDayDay4.textContent = weatherDate.get("forecast")[3]?.date;
   oneDayDay5.textContent = weatherDate.get("forecast")[4]?.date;
   oneDayDay6.textContent = weatherDate.get("forecast")[5]?.date;
-  // console.log(weatherDate.get("hour"));
 };
 
 // ===============================================================
@@ -147,14 +154,22 @@ const m = async () => {
   await getWeatherInfo("Tashkent");
   updateInfo();
 };
-if (!weatherDate.has("date")) {
+if (weatherDate.size === 0) {
   m();
 }
+console.log(weatherDate.size);
 
 // ===============================================================
 btnSearch.addEventListener("click", async () => {
+  console.log(weatherDate);
   if (search.value !== "") {
     await getWeatherInfo(search.value);
-    updateInfo();
+    if (weatherDate.size !== 0) {
+      updateInfo();
+      searchError.textContent = "";
+    }
+  }
+  if (weatherDate.get("error")) {
+    searchError.textContent = weatherDate.get("error");
   }
 });

@@ -18,7 +18,21 @@ nav .nav-items {
   align-items: center;
 }
 nav .nav-items .nav-item {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
   padding-right: 40px;
+}
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.search-error {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  color: red;
 }
 nav .nav-items .nav-search {
   position: relative;
@@ -43,6 +57,26 @@ nav .nav-items .nav-item input {
   background-color: #d9d9d9;
   outline: none;
 }
+nav .nav-items .nav-item input:focus {
+  border: 1px solid #516b7d;
+  background-color: #ffffff;
+}
+.btn-search {
+  width: 140px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #292929;
+  background-color: transparent;
+  border-radius: 18px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.btn-search:hover {
+  box-shadow: 0 0 5px #ffffff;
+}
+/* ====================== */
 
 .weather-items .this-moment {
   width: 100%;
