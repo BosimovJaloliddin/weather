@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: linear-gradient(to left, #2e4250, #ffffff);
+}
+.container {
+  padding: 60px 120px;
+}
+nav .nav-items {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+nav .nav-items .nav-item {
+  padding-right: 40px;
+}
+nav .nav-items .nav-search {
+  position: relative;
+}
+nav .nav-items .nav-item img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 24px;
+}
+nav .nav-items .nav-item input {
+  display: inline-block;
+  width: 600px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  padding-left: 40px;
+  color: #292929;
+  border-radius: 18px;
+  border: 1px solid #292929;
+  background-color: #d9d9d9;
+  outline: none;
+}
+
+.weather-items .this-moment {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin-top: 50px;
+}
+.weather-items .this-moment .data-info {
+  width: 30%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #516b7d, #ffffff);
+  border-radius: 7px;
+  box-shadow: 10px 10px 12px #00000095;
+}
+.weather-items .this-moment .data-info .city {
+  font-size: 30px;
+  font-weight: 700;
+  color: #292929;
+}
+.weather-items .this-moment .data-info .oclock {
+  font-size: 70px;
+  font-weight: 700;
+  color: #292929;
+}
+.weather-items .this-moment .data-info .date {
+  font-size: 18px;
+  font-weight: 4x 00;
+  color: #292929;
+}
+
+.weather-items .this-moment .main-weather_info-items {
+  width: 70%;
+  height: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to right, #516b7d, #ffffff);
+  border-radius: 7px;
+  box-shadow: 10px 10px 12px #00000095;
+}
+.weather-items .this-moment .main-weather_info-items .temp-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.weather-items .this-moment .main-weather_info-items .temp-items h1 {
+  font-size: 58px;
+  font-weight: 800;
+}
+.weather-items .this-moment .main-weather_info-items .temp-items h3 {
+  font-size: 38px;
+  font-weight: 500;
+}
+.weather-items .this-moment .main-weather_info-items .temp-items img {
+  width: 180px;
+  height: 180px;
+}

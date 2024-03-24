@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="nav">
+            <div class="nav-items">
+                <div class="nav-item">
+                    light
+                </div>
+                <div class="nav-item nav-search">
+                    <img src="./assets/icons/search 1.png" alt="search">
+                    <input class="search" type="text" placeholder="Search for your preffered city...">
+                    <button type="button" id="btnSearch">Search</button>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <div class="weather-items">
+                <div class="weather-item this-moment">
+                    <div class="data-info">
+                        <div class="city">No City</div>
+                        <div class="oclock">No Oclock</div>
+                        <div class="date">No Date</div>
+                    </div>
+                    <div class="main-weather_info-items">
+                        <div class="temp-items">
+                            <h1 class="temp-f">77F</h1>
+                            <h3 class="temp-c">32C</h3>
+                        </div>
+                        <div class="temp-items">
+                            <img src="./assets/icons/clear 1.png" alt="clear">
+                            <h3>Sunny</h3>
+                        </div>
+                        <!-- <div class="main-weather_info-item">3</div> -->
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <div class="five-day_info">All info</div>
+                    <div class="hour-info"></div>
+                </div>
+            </div>
+        </header>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
