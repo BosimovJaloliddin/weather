@@ -2,6 +2,11 @@ const search = document.querySelector(".search");
 const city = document.querySelector(".city");
 const oclock = document.querySelector(".oclock");
 const date = document.querySelector(".date");
+const tempF = document.querySelector(".temp-f");
+const tempC = document.querySelector(".temp-c");
+const day = document.querySelector(".day");
+const dayIcon = document.querySelector(".day-icon");
+console.log(dayIcon.attributes.src.textContent);
 
 let weatherDate = new Map();
 const getWeatherInfo = async (city) => {
@@ -16,11 +21,24 @@ const getWeatherInfo = async (city) => {
   weatherDate.set("date", result);
 };
 
+// ==============================================================
+const updateInfo = () => {
+  city.textContent = weatherDate.get("date")?.location?.name;
+  oclock.textContent = weatherDate
+    .get("date")
+    ?.location?.localtime.slice(10, 16);
+  date.textContent = weatherDate.get("date")?.location?.localtime.slice(0, 10);
+  tempF.textContent = `${weatherDate.get("date")?.current?.temp_f}F`;
+  tempC.textContent = `${weatherDate.get("date")?.current?.temp_c}C`;
+  day.textContent = weatherDate.get("date")?.current?.condition?.text;
+  dayIcon.attributes.src.textContent =
+    weatherDate.get("date")?.current?.condition?.icon;
+};
+
 // ===============================================================
 const m = async () => {
   await getWeatherInfo("Tashkent");
-  // console.log(weatherDate);
-  city.textContent = await weatherDate.get("date")?.location?.name;
+  updateInfo();
 };
 if (weatherDate.size === 0) {
   m();
@@ -30,7 +48,6 @@ if (weatherDate.size === 0) {
 btnSearch.addEventListener("click", async () => {
   if (search.value !== "") {
     await getWeatherInfo(search.value);
+    updateInfo();
   }
-  search.value = "";
-  city.textContent = weatherDate.get("date").location.name;
 });
