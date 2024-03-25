@@ -101,9 +101,10 @@ nav .nav-items .nav-item input:focus {
 .weather-items .this-moment .data-info:hover {
   box-shadow: 4px 4px 12px #00000095;
 }
-.weather-items .this-moment .data-info .city {
+.weather-items .this-moment .data-info .country {
   font-size: 30px;
   font-weight: 700;
+  text-align: center;
   color: #292929;
 }
 .weather-items .this-moment .data-info .oclock {

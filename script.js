@@ -1,6 +1,7 @@
 const search = document.querySelector(".search");
 const searchError = document.querySelector(".search-error");
 const city = document.querySelector(".city");
+const country = document.querySelector(".country");
 const oclock = document.querySelector(".oclock");
 const date = document.querySelector(".date");
 const tempF = document.querySelector(".temp-f");
@@ -77,6 +78,8 @@ const getWeatherInfo = async (city) => {
 
 // ==============================================================
 const updateInfo = () => {
+  console.log(weatherDate);
+  country.textContent = weatherDate.get("date")?.location?.country;
   city.textContent = weatherDate.get("date")?.location?.name;
   oclock.textContent = weatherDate
     .get("date")
