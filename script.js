@@ -5,9 +5,10 @@ const oclock = document.querySelector(".oclock");
 const date = document.querySelector(".date");
 const tempF = document.querySelector(".temp-f");
 const tempC = document.querySelector(".temp-c");
-const day = document.querySelector(".day");
+const day = document.querySelector(".day-name");
 const dayIcon = document.querySelector(".day-icon");
 const hourInfoItem = document.querySelector(".hour-info_item");
+
 const hourInfoOclock1 = document.querySelector(".hour-info_oclock1");
 const hourInfoOclock2 = document.querySelector(".hour-info_oclock2");
 const hourInfoOclock3 = document.querySelector(".hour-info_oclock3");
@@ -58,6 +59,7 @@ const getWeatherInfo = async (city) => {
   );
 
   let result = await res.json();
+  console.log(result);
 
   if (result?.error?.code !== 1006) {
     weatherDate.set("date", result);
