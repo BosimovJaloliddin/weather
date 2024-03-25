@@ -93,8 +93,8 @@ nav .nav-items .nav-item input:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #516b7d, #ffffff);
-  border-radius: 7px;
+  background: #d9d9d9;
+  border-radius: 10px;
   box-shadow: 2px 2px 7px #00000095;
   transition: all 0.6s ease;
 }
@@ -125,8 +125,8 @@ nav .nav-items .nav-item input:focus {
   justify-content: space-around;
   align-items: center;
   padding: 10px 16px;
-  background: linear-gradient(to right, #516b7d, #ffffff);
-  border-radius: 7px;
+  background: #d9d9d9;
+  border-radius: 10px;
   box-shadow: 2px 2px 7px #00000095;
   transition: all 0.6s ease;
 }
@@ -265,8 +265,8 @@ nav .nav-items .nav-item input:focus {
   justify-content: space-between;
   align-items: center;
   padding: 10px 8px;
-  background: linear-gradient(to right, #516b7d, #ffffff);
-  border-radius: 7px;
+  background: #d9d9d9;
+  border-radius: 10px;
   transition: all 0.6s ease;
   box-shadow: 2px 2px 7px #00000095;
 }
@@ -308,8 +308,8 @@ nav .nav-items .nav-item input:focus {
 .hour-info {
   width: 65%;
   padding: 16px 48px;
-  background: linear-gradient(to right, #516b7d, #ffffff);
-  border-radius: 7px;
+  background: #d9d9d9;
+  border-radius: 10px;
   transition: all 0.6s ease;
   box-shadow: 2px 2px 7px #00000095;
 }

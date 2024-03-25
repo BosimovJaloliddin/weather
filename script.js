@@ -8,6 +8,12 @@ const tempC = document.querySelector(".temp-c");
 const day = document.querySelector(".day-name");
 const dayIcon = document.querySelector(".day-icon");
 const hourInfoItem = document.querySelector(".hour-info_item");
+const sunriseOclock = document.querySelector(".sunrise-oclock");
+const sunsetOclock = document.querySelector(".sunset-oclock");
+const humidity = document.querySelector(".humidity-num");
+const pressure = document.querySelector(".pressure-num");
+const wind = document.querySelector(".wind-num");
+const uv = document.querySelector(".uv-num");
 
 const hourInfoOclock1 = document.querySelector(".hour-info_oclock1");
 const hourInfoOclock2 = document.querySelector(".hour-info_oclock2");
@@ -47,8 +53,9 @@ const oneDayDay4 = document.querySelector(".one-day_day4");
 const oneDayDay5 = document.querySelector(".one-day_day5");
 const oneDayDay6 = document.querySelector(".one-day_day6");
 
-// ====================================================
+// ===================================================
 let weatherDate = new Map();
+let newDate = new Date();
 // =====================================================
 const getWeatherInfo = async (city) => {
   let res = await fetch(
@@ -59,7 +66,6 @@ const getWeatherInfo = async (city) => {
   );
 
   let result = await res.json();
-  console.log(result);
 
   if (result?.error?.code !== 1006) {
     weatherDate.set("date", result);
@@ -78,10 +84,19 @@ const updateInfo = () => {
   date.textContent = weatherDate.get("date")?.location?.localtime.slice(0, 10);
   tempF.textContent = `${weatherDate.get("date")?.current?.temp_f}F`;
   tempC.textContent = `${weatherDate.get("date")?.current?.temp_c}C`;
+  sunriseOclock.textContent = weatherDate.get("forecast")[0]?.astro?.sunrise;
+  sunsetOclock.textContent = weatherDate.get("forecast")[0]?.astro?.sunset;
   day.textContent = weatherDate.get("date")?.current?.condition?.text;
   dayIcon.attributes.src.textContent =
     weatherDate.get("date")?.current?.condition?.icon;
-  //
+  // ============
+  humidity.textContent = `${weatherDate.get("forecast")[0]?.day?.avghumidity}%`;
+  wind.textContent = `${weatherDate.get("forecast")[0]?.day?.maxwind_kph}kph`;
+  pressure.textContent = `${
+    weatherDate.get("forecast")[0].hour[newDate.getHours()].pressure_mb
+  }hPa`;
+  uv.textContent = `${weatherDate.get("forecast")[0].day.uv}`;
+  //===============
   hourInfoOclock1.textContent = weatherDate.get("hour")[0]?.time?.slice(10, 16);
   hourInfoOclock2.textContent = weatherDate.get("hour")[6]?.time?.slice(10, 16);
   hourInfoOclock3.textContent = weatherDate
@@ -159,11 +174,9 @@ const m = async () => {
 if (weatherDate.size === 0) {
   m();
 }
-console.log(weatherDate.size);
 
 // ===============================================================
 btnSearch.addEventListener("click", async () => {
-  console.log(weatherDate);
   if (search.value !== "") {
     await getWeatherInfo(search.value);
     if (weatherDate.size !== 0) {
