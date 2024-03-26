@@ -48,7 +48,7 @@ nav .nav-items .nav-item img {
 }
 nav .nav-items .nav-item input {
   display: inline-block;
-  max-width: 600px;
+  width: 600px;
   height: 40px;
   font-size: 18px;
   font-weight: 400;
@@ -64,7 +64,7 @@ nav .nav-items .nav-item input:focus {
   background-color: #ffffff;
 }
 .btn-search {
-  max-width: 140px;
+  width: 140px;
   height: 40px;
   font-size: 18px;
   font-weight: 500;
@@ -369,7 +369,11 @@ nav .nav-items .nav-item input:focus {
 }
 
 /* =============================== */
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 30px;
+  }
   /* nav style */
   nav .nav-items .nav-item input {
     width: 300px;
