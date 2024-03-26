@@ -150,22 +150,22 @@ const updateInfo = () => {
 
   oneDayTemp1.textContent = `${Math.floor(
     weatherDate.get("forecast")[0]?.day?.maxtemp_c
-  )}`;
+  )}C`;
   oneDayTemp2.textContent = `${Math.floor(
     weatherDate.get("forecast")[1]?.day?.maxtemp_c
-  )}`;
+  )}C`;
   oneDayTemp3.textContent = `${Math.floor(
     weatherDate.get("forecast")[2]?.day?.maxtemp_c
-  )}`;
+  )}C`;
   oneDayTemp4.textContent = `${Math.floor(
     weatherDate.get("forecast")[3]?.day?.maxtemp_c
-  )}`;
+  )}C`;
   oneDayTemp5.textContent = `${Math.floor(
     weatherDate.get("forecast")[4]?.day?.maxtemp_c
-  )}`;
+  )}C`;
   oneDayTemp6.textContent = `${Math.floor(
     weatherDate.get("forecast")[5]?.day?.maxtemp_c
-  )}`;
+  )}C`;
 
   oneDayDay1.textContent = weatherDate.get("forecast")[0]?.date;
   oneDayDay2.textContent = weatherDate.get("forecast")[1]?.date;
