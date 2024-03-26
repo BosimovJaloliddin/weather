@@ -369,7 +369,7 @@ nav .nav-items .nav-item input:focus {
 }
 
 /* =============================== */
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .container {
     max-width: 768px;
     padding: 30px;
@@ -496,4 +496,15 @@ nav .nav-items .nav-item input:focus {
   }
 
   /*  */
+}
+
+@media only screen and (max-width: 600px) {
+  nav .nav-items .nav-item input {
+    width: 240px;
+    font-size: 12px;
+  }
+  .btn-search {
+    width: 80px;
+    font-size: 12px;
+  }
 }
