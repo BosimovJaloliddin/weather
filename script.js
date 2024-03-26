@@ -54,6 +54,12 @@ const oneDayDay4 = document.querySelector(".one-day_day4");
 const oneDayDay5 = document.querySelector(".one-day_day5");
 const oneDayDay6 = document.querySelector(".one-day_day6");
 
+const hourWind1 = document.querySelector(".hour-wind1");
+const hourWind2 = document.querySelector(".hour-wind2");
+const hourWind3 = document.querySelector(".hour-wind3");
+const hourWind4 = document.querySelector(".hour-wind4");
+const hourWind5 = document.querySelector(".hour-wind5");
+
 // ===================================================
 let weatherDate = new Map();
 let newDate = new Date();
@@ -94,7 +100,7 @@ const updateInfo = () => {
     weatherDate.get("date")?.current?.condition?.icon;
   // ============
   humidity.textContent = `${weatherDate.get("forecast")[0]?.day?.avghumidity}%`;
-  wind.textContent = `${weatherDate.get("forecast")[0]?.day?.maxwind_kph}kph`;
+  wind.textContent = `${weatherDate.get("forecast")[0]?.day?.maxwind_kph}km/h`;
   pressure.textContent = `${
     weatherDate.get("forecast")[0].hour[newDate.getHours()].pressure_mb
   }hPa`;
@@ -167,6 +173,12 @@ const updateInfo = () => {
   oneDayDay4.textContent = weatherDate.get("forecast")[3]?.date;
   oneDayDay5.textContent = weatherDate.get("forecast")[4]?.date;
   oneDayDay6.textContent = weatherDate.get("forecast")[5]?.date;
+
+  hourWind1.textContent = `${weatherDate.get("hour")[0].wind_kph}km/h`;
+  hourWind2.textContent = `${weatherDate.get("hour")[6].wind_kph}km/h`;
+  hourWind3.textContent = `${weatherDate.get("hour")[12].wind_kph}km/h`;
+  hourWind4.textContent = `${weatherDate.get("hour")[18].wind_kph}km/h`;
+  hourWind5.textContent = `${weatherDate.get("hour")[23].wind_kph}km/h`;
 };
 
 // ===============================================================

@@ -66,7 +66,7 @@ nav .nav-items .nav-item input:focus {
   height: 40px;
   font-size: 18px;
   font-weight: 500;
-  color: #292929;
+  color: #ffff;
   background-color: transparent;
   border-radius: 18px;
   border: 1px solid #ffffff;
@@ -239,7 +239,6 @@ nav .nav-items .nav-item input:focus {
   font-weight: 400;
   color: #292929;
   text-align: center;
-  text-transform: capitalize;
   margin-bottom: 8px;
 }
 .temp-detalis_info > p {
@@ -335,6 +334,7 @@ nav .nav-items .nav-item input:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
   padding: 14px 12px;
   background: linear-gradient(to bottom, #516b7d, #ffffff);
   border-radius: 28px;
@@ -345,7 +345,15 @@ nav .nav-items .nav-item input:focus {
   transform: translate(3px, -3px);
   box-shadow: 4px -2px 5px #3b538c;
 }
-.hour-info_item > img {
+.hour-info_img1,
+.hour-info_img2,
+.hour-info_img3,
+.hour-info_img4,
+.hour-info_img5 {
   width: 54px;
   height: 54px;
+}
+.hour-wind_img {
+  width: 34px;
+  height: 34px;
 }
