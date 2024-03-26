@@ -84,7 +84,6 @@ const getWeatherInfo = async (city) => {
 
 // ==============================================================
 const updateInfo = () => {
-  console.log(weatherDate);
   country.textContent = weatherDate.get("date")?.location?.country;
   city.textContent = weatherDate.get("date")?.location?.name;
   oclock.textContent = weatherDate
@@ -201,5 +200,19 @@ btnSearch.addEventListener("click", async () => {
   }
   if (weatherDate.get("error")) {
     searchError.textContent = weatherDate.get("error");
+  }
+});
+addEventListener("keypress", async (e) => {
+  if (e.key === "Enter") {
+    if (search.value !== "") {
+      await getWeatherInfo(search.value);
+      if (weatherDate.size !== 0) {
+        updateInfo();
+        searchError.textContent = "";
+      }
+    }
+    if (weatherDate.get("error")) {
+      searchError.textContent = weatherDate.get("error");
+    }
   }
 });

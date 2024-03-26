@@ -515,20 +515,20 @@ nav .nav-items .nav-item input:focus {
   }
   nav .nav-items .nav-item input {
     width: 170px;
-    height: 28px;
+    height: 32px;
     font-size: 8px;
-    padding-left: 20px;
+    padding-left: 25px;
   }
   nav .nav-items .nav-item img {
     width: 10px;
     height: 12px;
-    top: 7px;
-    left: 7px;
+    top: 10px;
+    left: 10px;
   }
   .btn-search {
     width: 60px;
-    height: 28px;
-    font-size: 8px;
+    height: 32px;
+    font-size: 10px;
   }
   .main-weather_info-items {
     height: 320px;
