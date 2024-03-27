@@ -1,5 +1,8 @@
+const body = document.querySelector("body");
 const search = document.querySelector(".search");
 const searchError = document.querySelector(".search-error");
+const lightMode = document.querySelector(".light-mode");
+const darkMode = document.querySelector(".dark-mode");
 const city = document.querySelector(".city");
 const country = document.querySelector(".country");
 const oclock = document.querySelector(".oclock");
@@ -214,5 +217,21 @@ addEventListener("keypress", async (e) => {
     if (weatherDate.get("error")) {
       searchError.textContent = weatherDate.get("error");
     }
+  }
+});
+
+// ===============light and dark mode ====================
+darkMode.addEventListener("click", () => {
+  if (lightMode.classList.value.includes("none")) {
+    lightMode.classList.remove("none");
+    darkMode.classList.add("none");
+    body.classList.add("dark");
+  }
+});
+lightMode.addEventListener("click", () => {
+  if (darkMode.classList.value.includes("none")) {
+    darkMode.classList.remove("none");
+    lightMode.classList.add("none");
+    body.classList.remove("dark");
   }
 });
